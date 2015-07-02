@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="perf_reportingApp" ng-cloak>
+
+<head>
+    <title>Books Catalog</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <run-sidebar></run-sidebar>
+        <div class="container" style="padding-top: 10px">
+            <div ng-view></div>
+        </div>
+    </div>
+    <!-- angular modules -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <!-- main app -->
+    <script src="app/app.js"></script>
+<!--    <script src="app/controllers/RunController.js"></script> -->
+    <script src="app/directives/runSidebar.js"></script>
+    <!-- <script src="app/services/perfFactory.js"></script>  -->
+</body>
+</html>
