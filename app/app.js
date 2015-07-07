@@ -7,10 +7,10 @@
                 controller: '',
                 templateUrl: 'app/views/home.html'
              })            
-/*            .when('/books/:genreName', {
+            .when('/runs/:runBuildNumber', {
                 controller: 'RunController',
-                templateUrl: 'app/views/books.html'
-             })*/
+                templateUrl: 'app/views/run.html'
+             })
             .otherwise( { redirectTo: '/' });
     });
     
