@@ -3,11 +3,11 @@
     <ul class="nav nav-list">
         <li class="sidebar-brand">
                     <h4>
-                        Recent Runs
+                        <a href="index.html#/">Recent Runs</a>
                     </h4>
                     <hr />
         </li>
-        <li>
+<!--        <li>
             <label class="tree-toggle">Run 1</label>
             <ul class="tree">
                 <li><a href="#/runs/child1ofRun1">Child 1 of Run 1</a>
@@ -15,8 +15,17 @@
                 <li><a href="#/runs/child2ofRun1">Child 2 of Run 1</a>
                 </li>
             </ul>
+        </li>-->
+        
+        <li ng-repeat = "run in runs">
+            <label ng-click="toggleTree($event)" class="tree-toggle">{{run.buildNumber}}</label> 
+            <ul class="tree">
+                <li ng-repeat = "childRun in run.children">
+                    <a href="#/runs/{{childRun.id}}">{{childRun.environment.name}}</a>
+                </li>
+            </ul>
         </li>
-        <li>
+<!--        <li>
             <label class="tree-toggle">Run 2</label>
             <ul class="tree">
                 <li><a href="#/runs/child1ofRun2">Child 1 of Run 2</a>
@@ -24,7 +33,7 @@
                 <li><a href="#/runs/child2ofRun2">Child 2 of Run 2</a>
                 </li>
             </ul>
-        </li>
+        </li>-->
     </ul>
 </div>
 
@@ -37,10 +46,6 @@
 
 
 <script>
-    $('.tree-toggle').click(function () {
-        $(this).parent().children('ul.tree').toggle(200);
-    });
-
     $(function () {
         $('.tree-toggle').parent().children('ul.tree').toggle(200);
     })

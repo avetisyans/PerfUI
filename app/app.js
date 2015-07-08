@@ -7,7 +7,7 @@
                 controller: '',
                 templateUrl: 'app/views/home.html'
              })            
-            .when('/runs/:runBuildNumber', {
+            .when('/runs/:childRunId', {
                 controller: 'RunController',
                 templateUrl: 'app/views/run.html'
              })

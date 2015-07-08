@@ -1,25 +1,30 @@
 (function() {
     
     var RunController = function ($scope, $routeParams, perfFactory) {
-        var routParamName = $routeParams.runBuildNumber;
-        
-        $scope.hello = routParamName;
-        
-        console.log('$scope hello is: ' + $scope.hello);
+        var childRunId = parseInt($routeParams.childRunId);
         
         function init() {
-            perfFactory.runs()
-                .success(function(runs) {
-                $scope.runs = runs;
-                    console.log("runs are: " + runs);
-                })
-                .error(function(data, status, headers, config) {
-                    console.log('Error while getting Runs');
-                    console.log(data.error + ' ' + status);
-                });
+/*         $scope.$parent.runs.forEach(function(run) {
+            run.children.foreach(function(childRun) {
+               
+            })
+        });  */
+            
+            $scope.$parent.runs.forEach(function(run) {
+               run.children.forEach(function(childRun) {
+                    console.log('childRun.id', childRun.id);
+                    console.log('childRunId', childRunId);
+                   if (childRun.id === childRunId) {
+                       $scope.run = childRun;
+                       return;
+                   }
+               })
+            });
+            
         }
         
         init();
+        
     };
     
     RunController.$inject = ['$scope', '$routeParams', 'perfFactory'];
