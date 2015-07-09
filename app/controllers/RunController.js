@@ -2,6 +2,7 @@
     
     var RunController = function ($scope, $routeParams, perfFactory) {
         var childRunId = parseInt($routeParams.childRunId);
+        var tabArray = [];
         
         function init() {
 /*         $scope.$parent.runs.forEach(function(run) {
@@ -21,9 +22,29 @@
                })
             });
             
+            $scope.run.testSuites.forEach(function(testSuite) {
+                //var table = '<table class="table table-bordered table-hover table-striped"><thead><tr>';
+                $scope.testCases = testSuite.testCases;
+                
+                tabArray.push({ title: testSuite.name, content: ''});
+            })
+            
+            
+            
+            
+           // tabArray.push({ title:'Dynamic Title 1', content:'Dynamic content 1', active: true });
+           // tabArray.push({ title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true });
         }
         
         init();
+        
+    
+        
+    $scope.tabs = tabArray;
+        
+   
+        
+    
         
     };
     

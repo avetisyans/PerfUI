@@ -1,2 +1,25 @@
-<h4> Run page </h4>
-{{ run }}
+<tabset>
+    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Result</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="testCase in testCases">
+                    <td>{{ testCase.testCaseName }}</td>
+                    <td>{{ testCase.testType }}</td>
+                    <td>{{ testCase.result }}</td>
+                    <td>{{ testCase.duration }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </tab>
+</tabset>
+<hr />
+<h4> Run page </h4> {{ run }}
+<hr />

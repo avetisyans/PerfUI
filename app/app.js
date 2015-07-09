@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('perf_reportingApp', ['ngRoute']);
+    var app = angular.module('perf_reportingApp', ['ngRoute','ui.bootstrap']);
 
     app.config(function($routeProvider) {
         $routeProvider
