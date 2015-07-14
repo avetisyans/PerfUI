@@ -1,0 +1,32 @@
+<div id="sidebar-wrapper">
+    <ul class="nav nav-list">
+        <li class="sidebar-brand">
+            <a href="#/environments">Evironments</a> <a href="#/runs">Runs</a>
+            <hr />
+        </li>
+        <div ng-if="viewSidebar === 'run_sidebar'" ng-include="'app/views/run_sidebar.html'"></div>
+        <div ng-if="viewSidebar === 'env_sidebar'" ng-include="'app/views/env_sidebar.html'"></div>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+
+<script>
+    $(function () {
+        $('.tree-toggle').parent().children('ul.tree').toggle();
+    })
+</script>
+

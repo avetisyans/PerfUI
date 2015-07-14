@@ -12,7 +12,7 @@
     
     perfFactory.$inject = ['$http'];
     
-    angular.module('perf_reportingApp').factory('perfFactory',perfFactory);
+    angular.module('perf_reportingApp').factory('perfFactory', perfFactory);
     
     
 }());

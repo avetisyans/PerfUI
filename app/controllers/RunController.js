@@ -10,24 +10,41 @@
                
             })
         });  */
-            
-            $scope.$parent.runs.forEach(function(run) {
-               run.children.forEach(function(childRun) {
-                    console.log('childRun.id', childRun.id);
-                    console.log('childRunId', childRunId);
-                   if (childRun.id === childRunId) {
-                       $scope.run = childRun;
-                       return;
-                   }
-               })
-            });
-            
-            $scope.run.testSuites.forEach(function(testSuite) {
-                //var table = '<table class="table table-bordered table-hover table-striped"><thead><tr>';
-                $scope.testCases = testSuite.testCases;
+            perfFactory.runs()
+                .success(function(runs) {
+                $scope.runs = runs;
+                console.log("$scope.runs is set");
+                if (childRunId) {
+                    console.log("Setting $scope.run");
+                    $scope.runs.forEach(function (run) {
+                        run.children.forEach(function (childRun) {
+                            console.log('childRun.id', childRun.id);
+                            console.log('childRunId', childRunId);
+                            if (childRun.id === childRunId) {
+                                $scope.run = childRun;
+                                return;
+                            }
+                        })
+                    });
+
+                    $scope.run.testSuites.forEach(function (testSuite) {
+                        //var table = '<table class="table table-bordered table-hover table-striped"><thead><tr>';
+                        //$scope.testCases = testSuite.testCases;
+
+                        tabArray.push({
+                            title: testSuite.name,
+                            content: testSuite.testCases
+                        });
+                    })
+                }
                 
-                tabArray.push({ title: testSuite.name, content: ''});
-            })
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('Error while getting Runs');
+                    console.log(data.error + ' ' + status);
+                });
+            
+
             
             
             
@@ -38,6 +55,7 @@
         
         init();
         
+        console.log("___runController__");
     
         
     $scope.tabs = tabArray;

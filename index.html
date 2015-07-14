@@ -7,9 +7,10 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body ng-controller="HomeController">
+<body>
     <div id="wrapper">
-        <run-sidebar></run-sidebar>
+        <!--<run-sidebar></run-sidebar>-->
+        <div ng-if="hasSidebar" ng-include="'app/views/sidebar.html'"></div>
         <div class="container" style="padding-top: 10px">
             <div ng-view></div>
         </div>
@@ -22,8 +23,8 @@
     <!-- main app -->
     <script src="app/app.js"></script>
     <script src="app/controllers/RunController.js"></script>
+    <script src="app/controllers/EnvironmentController.js"></script>
     <script src="app/controllers/HomeController.js"></script>
-    <script src="app/directives/runSidebar.js"></script>
     <script src="app/services/perfFactory.js"></script> 
 </body>
 </html>

@@ -1,0 +1,376 @@
+[
+  {
+    "id": 1,
+    "buildNumber": "run100",
+    "children": [
+      {
+        "id": 2,
+        "buildNumber": "run101",
+        "tag": "SecondTag",
+        "startTime": 1436277580762,
+        "endTime": 1436277663932,
+        "duration": "00:01:23.170",
+        "environment": {
+          "buildAndBranches": [
+            {
+              "buildNumber": "5075695",
+              "branchName": "main"
+            }
+          ],
+          "name": "singleSlice_with_5k_objects1",
+          "productName": "vRops6.1",
+          "datanodes": null,
+          "master": "10.143.121.101",
+          "deploymentType": "VA",
+          "haEnabled": false
+        },
+        "testSuites": [
+          {
+            "name": "OOTBDashboardTest",
+            "testCases": [
+              {
+                "testCaseName": "loadDefaultRecommendationsPage",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277603428,
+                "endTime": 1436277653260,
+                "duration": "00:00:49.832"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "buildNumber": "run102",
+        "tag": "SecondTag",
+        "startTime": 1436277692916,
+        "endTime": 1436277764629,
+        "duration": "00:01:11.713",
+        "environment": {
+          "buildAndBranches": [
+            {
+              "buildNumber": "5075695",
+              "branchName": "main"
+            }
+          ],
+          "name": "singleSlice_with_5k_objects2",
+          "productName": "vRops6.1",
+          "datanodes": null,
+          "master": "10.143.121.102",
+          "deploymentType": "VA",
+          "haEnabled": false
+        },
+        "testSuites": [
+          {
+            "name": "OOTBDashboardTest",
+            "testCases": [
+              {
+                "testCaseName": "loadDefaultRecommendationsPage",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277603428,
+                "endTime": 1436277653260,
+                "duration": "00:00:49.832"
+              },
+              {
+                "testCaseName": "loadWeatherMap",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277755080,
+                "endTime": 1436277755080,
+                "duration": "00:00:00.000"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "buildNumber": "run200",
+    "children": [
+      {
+        "id": 5,
+        "buildNumber": "run201",
+        "tag": "SecondTag",
+        "startTime": 1436277925198,
+        "endTime": 1436278103459,
+        "duration": "00:02:58.261",
+        "environment": {
+          "buildAndBranches": [
+            {
+              "buildNumber": "5075695",
+              "branchName": "main"
+            }
+          ],
+          "name": "singleSlice_with_5k_objects1",
+          "productName": "vRops6.1",
+          "datanodes": null,
+          "master": "10.143.121.101",
+          "deploymentType": "VA",
+          "haEnabled": false
+        },
+        "testSuites": [
+          {
+            "name": "OOTBDashboardTest",
+            "testCases": [
+              {
+                "testCaseName": "loadDefaultRecommendationsPage",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277942888,
+                "endTime": 1436277998560,
+                "duration": "00:00:55.672"
+              },
+              {
+                "testCaseName": "loadWeatherMap",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277998900,
+                "endTime": 1436277998900,
+                "duration": "00:00:00.000"
+              }
+            ]
+          },
+          {
+            "name": "AlertsTab",
+            "testCases": [
+              {
+                "testCaseName": "defaultAlertsPageTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278067359,
+                "endTime": 1436278092772,
+                "duration": "00:00:25.413"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "buildNumber": "run202",
+        "tag": "SecondTag",
+        "startTime": 1436278267484,
+        "endTime": 1436278428993,
+        "duration": "00:02:41.509",
+        "environment": {
+          "buildAndBranches": [
+            {
+              "buildNumber": "5075695",
+              "branchName": "main"
+            }
+          ],
+          "name": "singleSlice_with_5k_objects2",
+          "productName": "vRops6.1",
+          "datanodes": null,
+          "master": "10.143.121.102",
+          "deploymentType": "VA",
+          "haEnabled": false
+        },
+        "testSuites": [
+          {
+            "name": "OOTBDashboardTest",
+            "testCases": [
+              {
+                "testCaseName": "loadDefaultRecommendationsPage",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277942888,
+                "endTime": 1436277998560,
+                "duration": "00:00:55.672"
+              },
+              {
+                "testCaseName": "loadWeatherMap",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436277998900,
+                "endTime": 1436277998900,
+                "duration": "00:00:00.000"
+              }
+            ]
+          },
+          {
+            "name": "AlertsTab",
+            "testCases": [
+              {
+                "testCaseName": "defaultAlertsPageTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278067359,
+                "endTime": 1436278092772,
+                "duration": "00:00:25.413"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "buildNumber": "run300",
+    "children": [
+      {
+        "id": 8,
+        "buildNumber": "run301",
+        "tag": "SecondTag",
+        "startTime": 1436278582834,
+        "endTime": 1436278850940,
+        "duration": "00:04:28.106",
+        "environment": {
+          "buildAndBranches": [
+            {
+              "buildNumber": "5075695",
+              "branchName": "main"
+            }
+          ],
+          "name": "singleSlice_with_5k_objects1",
+          "productName": "vRops6.1",
+          "datanodes": null,
+          "master": "10.143.121.101",
+          "deploymentType": "VA",
+          "haEnabled": false
+        },
+        "testSuites": [
+          {
+            "name": "OOTBDashboardTest",
+            "testCases": [
+              {
+                "testCaseName": "loadDefaultRecommendationsPage",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278595753,
+                "endTime": 1436278642051,
+                "duration": "00:00:46.298"
+              },
+              {
+                "testCaseName": "loadWeatherMap",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278642235,
+                "endTime": 1436278642235,
+                "duration": "00:00:00.000"
+              }
+            ]
+          },
+          {
+            "name": "AlertsTab",
+            "testCases": [
+              {
+                "testCaseName": "defaultAlertsPageTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278725055,
+                "endTime": 1436278750303,
+                "duration": "00:00:25.248"
+              }
+            ]
+          },
+          {
+            "name": "EnvironmentTab",
+            "testCases": [
+              {
+                "testCaseName": "skittlesOverviewTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278816004,
+                "endTime": 1436278840032,
+                "duration": "00:00:24.028"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "buildNumber": "run302",
+        "tag": "SecondTag",
+        "startTime": 1436279061151,
+        "endTime": 1436279369373,
+        "duration": "00:05:08.222",
+        "environment": {
+          "buildAndBranches": [
+            {
+              "buildNumber": "5075695",
+              "branchName": "main"
+            }
+          ],
+          "name": "singleSlice_with_5k_objects2",
+          "productName": "vRops6.1",
+          "datanodes": null,
+          "master": "10.143.121.102",
+          "deploymentType": "VA",
+          "haEnabled": false
+        },
+        "testSuites": [
+          {
+            "name": "OOTBDashboardTest",
+            "testCases": [
+              {
+                "testCaseName": "loadDefaultRecommendationsPage",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278595753,
+                "endTime": 1436278642051,
+                "duration": "00:00:46.298"
+              },
+              {
+                "testCaseName": "loadWeatherMap",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278642235,
+                "endTime": 1436278642235,
+                "duration": "00:00:00.000"
+              }
+            ]
+          },
+          {
+            "name": "AlertsTab",
+            "testCases": [
+              {
+                "testCaseName": "defaultAlertsPageTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278725055,
+                "endTime": 1436278750303,
+                "duration": "00:00:25.248"
+              }
+            ]
+          },
+          {
+            "name": "EnvironmentTab",
+            "testCases": [
+              {
+                "testCaseName": "skittlesOverviewTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436278816004,
+                "endTime": 1436278840032,
+                "duration": "00:00:24.028"
+              },
+              {
+                "testCaseName": "skittlesListTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436279302966,
+                "endTime": 1436279327519,
+                "duration": "00:00:24.553"
+              },
+              {
+                "testCaseName": "skittlesMapTest",
+                "testType": "UI",
+                "result": "SUCCESS",
+                "startTime": 1436279327750,
+                "endTime": 1436279358244,
+                "duration": "00:00:30.494"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

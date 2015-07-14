@@ -5,7 +5,9 @@
         $scope.hello = 'Hello from Home!';
         
         $scope.toggleTree = function ($event) {
+            console.log('LABEL is CLICKED --------------------------  LABEL is CLICKED')
             $($event.currentTarget).parent().children('ul.tree').toggle(200);
+            console.log($($event.currentTarget).parent().children('ul.tree'));
         }
         
         function init() {

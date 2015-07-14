@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="testCase in testCases">
+                <tr ng-repeat="testCase in tab.content">
                     <td>{{ testCase.testCaseName }}</td>
                     <td>{{ testCase.testType }}</td>
                     <td>{{ testCase.result }}</td>
@@ -21,5 +21,5 @@
     </tab>
 </tabset>
 <hr />
-<h4> Run page </h4> {{ run }}
+<h4> Run page </h4> <pre>{{ run | json }}</pre>
 <hr />
