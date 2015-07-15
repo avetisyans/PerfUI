@@ -5,18 +5,10 @@
         var tabArray = [];
         
         function init() {
-/*         $scope.$parent.runs.forEach(function(run) {
-            run.children.foreach(function(childRun) {
-               
-            })
-        });  */
-            perfFactory.runs()
-                .success(function(runs) {
-                $scope.runs = runs;
-                console.log("$scope.runs is set");
+
                 if (childRunId) {
                     console.log("Setting $scope.run");
-                    $scope.runs.forEach(function (run) {
+                    $scope.$parent.runs.forEach(function (run) {
                         run.children.forEach(function (childRun) {
                             console.log('childRun.id', childRun.id);
                             console.log('childRunId', childRunId);
@@ -37,13 +29,7 @@
                         });
                     })
                 }
-                
-                })
-                .error(function(data, status, headers, config) {
-                    console.log('Error while getting Runs');
-                    console.log(data.error + ' ' + status);
-                });
-            
+
 
             
             
