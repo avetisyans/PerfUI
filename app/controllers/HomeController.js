@@ -10,7 +10,29 @@
             console.log($($event.currentTarget).parent().children('ul.tree'));
         }
         
-        function init() {
+        $scope.displayRunTree = function() {
+             perfFactory.runs()
+                .success(function(runs) {
+                $scope.runs = runs;
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('Error while getting Runs');
+                    console.log(data.error + ' ' + status);
+                });           
+        }  
+        
+        $scope.displayEnvTree = function() {
+             perfFactory.environments()
+                .success(function(environments) {
+                $scope.environments = environments;
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('Error while getting Runs');
+                    console.log(data.error + ' ' + status);
+                });           
+        }
+        
+/*        function init() {
             perfFactory.runs()
                 .success(function(runs) {
                 $scope.runs = runs;
@@ -19,9 +41,9 @@
                     console.log('Error while getting Runs');
                     console.log(data.error + ' ' + status);
                 });
-        }
+        }*/
         
-        init();
+       // init();
     };
     
     HomeController.$inject = ['$scope', '$routeParams', 'perfFactory'];
