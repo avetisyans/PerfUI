@@ -7,11 +7,11 @@
         function init() {
 
                 if (childRunId) {
-                    console.log("Setting $scope.run");
+                  //  console.log("Setting $scope.run");
                     $scope.$parent.runs.forEach(function (run) {
                         run.children.forEach(function (childRun) {
-                            console.log('childRun.id', childRun.id);
-                            console.log('childRunId', childRunId);
+                           // console.log('childRun.id', childRun.id);
+                           // console.log('childRunId', childRunId);
                             if (childRun.id === childRunId) {
                                 $scope.run = childRun;
                                 return;
@@ -41,7 +41,7 @@
         
         init();
         
-        console.log("___runController__");
+       // console.log("___runController__");
     
         
     $scope.tabs = tabArray;

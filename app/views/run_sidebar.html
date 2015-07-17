@@ -1,4 +1,4 @@
-
+<!--
         <li class="liTree" ng-repeat = "run in runs">
             <label ng-click="toggleTree($event)" class="tree-toggle"><i>{{run.buildNumber}}</i></label> 
             <ul class="tree">
@@ -6,12 +6,44 @@
                     <a href="#/runs/{{childRun.id}}">{{childRun.environment.name}}</a>
                 </li>
             </ul>
+        </li>-->
+
+<div ng-cloak class="tree"  ng-controller="HomeController">
+    <ul>
+<!--        <li>
+            <span class="label label-success"><i class="glyphicon glyphicon-minus-sign"></i> Monday, January 7: 8.00 hours</span>
+            <ul>
+                <li>
+                    <a href=""><span>8.00</span></a>
+                </li>
+            </ul>
         </li>
+        <li>
+            <span class="label label-success"><i class="glyphicon glyphicon-minus-sign"></i> Tuesday, January 8: 8.00 hours</span>
+            <ul>
+                <li>
+                     <a href=""><span>2.00</span></a>
+                </li>
+                <li>
+                     <a href=""><span>3.00</span></a>
+                </li>
+            </ul>
+        </li> -->
+        <li  ng-repeat="run in runs">
+            <span style="cursor:pointer" sidebar-main-directive class="label label-success"><i class="glyphicon glyphicon-plus-sign"></i> {{ run.buildNumber }}</span>
+            <ul>
+                <li ng-repeat="childRun in run.children" sidebar-repeat-directive>
+                    <a href="#/runs/{{childRun.id}}"> {{ childRun.environment.name }}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
 
 
-<script>
-    $(function () {
-        console.log($('ul.tree').toggle());
-    });
-</script>
+<!--<script>
+$(function () {
+
+});
+</script>-->
