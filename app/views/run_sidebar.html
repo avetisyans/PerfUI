@@ -1,6 +1,6 @@
 
-        <li ng-repeat = "run in runs">
-            <label ng-click="toggleTree($event)" class="tree-toggle">{{run.buildNumber}}</label> 
+        <li class="liTree" ng-repeat = "run in runs">
+            <label ng-click="toggleTree($event)" class="tree-toggle"><i>{{run.buildNumber}}</i></label> 
             <ul class="tree">
                 <li ng-repeat = "childRun in run.children">
                     <a href="#/runs/{{childRun.id}}">{{childRun.environment.name}}</a>
@@ -12,6 +12,6 @@
 
 <script>
     $(function () {
-        $('.tree-toggle').parent().children('ul.tree').toggle();
-    })
+        console.log($('ul.tree').toggle());
+    });
 </script>

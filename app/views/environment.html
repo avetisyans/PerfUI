@@ -1,1 +1,27 @@
-<h3>Environment Page</h3>
+<h3>Environment Details</h3>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>TestCase Name</th>
+                    <th>Total Runs</th>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                    <th>Successful Min</th>
+                    <th>Successful Max</th>
+                    <th>Successful Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="testCaseData in env.testCaseData">
+                    <td>{{ testCaseData.name }}</td>
+                    <td>{{ testCaseData.totalRuns }}</td>
+                    <td>{{ testCaseData.passed }}</td>
+                    <td>{{ testCaseData.failed }}</td>
+                    <td>{{ testCaseData.successfulMin }}</td>
+                    <td>{{ testCaseData.successfulMax }}</td>
+                    <td>{{ testCaseData.successfulAvg }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+<!--<pre>{{ env.testCaseData | json }}</pre>-->

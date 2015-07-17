@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper">
     <ul class="nav nav-list">
-        <li class="sidebar-brand">
-            <a href="#/environments">Evironments</a> <a ng-click="displayRunTree()" href="#/runs">Runs</a>
+        <li  class="sidebar-brand">
+            <a ng-click="displayEnvTree()" href="#/environments">Evironments</a> <a ng-click="displayRunTree()" href="#/runs">Runs</a>
             <hr />
         </li>
         <div ng-if="viewSidebar === 'run_sidebar'" ng-include="'app/views/run_sidebar.html'"></div>
@@ -13,13 +13,17 @@
 
 
 
-
+<!--<script>
+    $(function () {
+        console.log($('ul.tree').children().size());
+    });
+</script>
 <script>
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-</script>
+</script>-->
 
 
 

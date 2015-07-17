@@ -47,6 +47,17 @@
                     }
                 }
              })
+             .when('/environments/:envName', {
+                controller: 'EnvironmentController',
+                templateUrl: 'app/views/environment.html',
+                resolve: {
+                    hasSidebar: function($rootScope) {
+                        $rootScope.hasSidebar = true;
+                        $rootScope.viewSidebar = "env_sidebar";
+                        return true;
+                    }
+                }
+             })
              
             .otherwise( { redirectTo: '/' });
     });
