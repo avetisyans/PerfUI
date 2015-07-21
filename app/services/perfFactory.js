@@ -1,14 +1,15 @@
 (function() {
     
     var perfFactory = function($http) {
+        var contextPath = "http://localhost:8080/performance-report/"
         var factory = {};
         
         factory.runs = function() {
-            return $http.get('http://localhost:8080/performance-reporting/rest/runs');
+            return $http.get(contextPath + "rest/runs");
         };
         
         factory.environments = function() {
-            return $http.get('http://localhost:8080/performance-reporting/rest/environments');
+            return $http.get(contextPath + "rest/environments");
         };
         
         return factory;

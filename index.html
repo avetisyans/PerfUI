@@ -10,10 +10,30 @@
 <body ng-controller="HomeController">
     <div id="wrapper">
         <!--<run-sidebar></run-sidebar>-->
+<!--        <div class="container" style="padding-top: 10px">-->
+<!--            <div class="row">
+                <div class="col-md-2 col-sm-2">
+                <div ng-if="hasSidebar" ng-include="'app/views/sidebar.html'"></div>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <div class="container">-->
         <div ng-if="hasSidebar" ng-include="'app/views/sidebar.html'"></div>
-        <div class="container" style="padding-top: 10px">
-            <div ng-view></div>
+        <div id="page-content-wrapper">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div ng-view></div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
         </div>
+                        
+<!--                    </div>
+                </div>
+            </div>-->
+ <!--       </div>-->
     </div>
     <!-- angular modules -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

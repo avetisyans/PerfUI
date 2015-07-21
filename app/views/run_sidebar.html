@@ -29,10 +29,10 @@
                 </li>
             </ul>
         </li> -->
-        <li  ng-repeat="run in runs">
+        <li  ng-repeat="run in runs track by $index">
             <span style="cursor:pointer" sidebar-main-directive class="label label-success"><i class="glyphicon glyphicon-plus-sign"></i> {{ run.buildNumber }}</span>
             <ul>
-                <li ng-repeat="childRun in run.children" sidebar-repeat-directive>
+                <li ng-repeat="childRun in run.children track by $index" sidebar-repeat-directive>
                     <a href="#/runs/{{childRun.id}}"> {{ childRun.environment.name }}</a>
                 </li>
             </ul>
