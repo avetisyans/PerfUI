@@ -16,7 +16,7 @@
                                 $scope.run = childRun;
                                 return;
                             }
-                        })
+                        });
                     });
 
                     $scope.run.testSuites.forEach(function (testSuite) {
@@ -27,7 +27,7 @@
                             title: testSuite.name,
                             content: testSuite.testCases
                         });
-                    })
+                    });
                 }
 
 
