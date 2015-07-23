@@ -24,7 +24,7 @@
             </ul>
         </li> -->
         <li  ng-repeat = "env in environments">
-            <span style="font-size:14px" style="cursor:pointer" sidebar-main-directive class="label"><a href="#/environments/{{env.name}}">{{env.name}}</a></span>
+            <span style="font-size:14px" style="cursor:pointer" sidebar-main-directive class="label"><a ng-click="states.activeItemId=env.name; sharingFactory.runPath=env.name" ng-class="{'active': env.name === states.activeItemId}" href="#/environments/{{env.name}}">{{env.name}}</a></span>
         </li>
     </ul>
 </div>

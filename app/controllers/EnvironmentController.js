@@ -1,7 +1,8 @@
 (function() {
     
-    var EnvironmentController = function ($scope, $routeParams, perfFactory) {
+    var EnvironmentController = function ($scope, $routeParams, perfFactory, sharingFactory) {
         var envName = $routeParams.envName;
+        var allSuites = [];
         var tabArray = [];
         
         function init() {
@@ -18,15 +19,22 @@
                             title: testSuite.name,
                             content: testSuite.testCaseStats
                         });
+                        allSuites.push.apply(allSuites, testSuite.testCaseStats);
                     });
                 }
          }
         
-        init();  
+        init();
+        
+        tabArray.push({
+            title: 'All Suites*',
+            content: allSuites
+        });
+        
         $scope.tabs = tabArray;
     };
     
-    EnvironmentController.$inject = ['$scope', '$routeParams', 'perfFactory'];
+    EnvironmentController.$inject = ['$scope', '$routeParams', 'perfFactory', 'sharingFactory'];
     
     angular.module('perf_reportingApp').controller('EnvironmentController', EnvironmentController);
     

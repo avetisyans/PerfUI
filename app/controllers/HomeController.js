@@ -1,7 +1,8 @@
 (function() {
     
-    var HomeController = function ($scope, $routeParams, perfFactory) {
-        
+    var HomeController = function ($scope, $routeParams, perfFactory, sharingFactory) {
+        $scope.states = {};
+        $scope.sharingFactory = sharingFactory;
         $scope.hello = 'Hello from Home!';
         
         $scope.toggleTree = function ($event) {
@@ -46,7 +47,7 @@
        // init();
     };
     
-    HomeController.$inject = ['$scope', '$routeParams', 'perfFactory'];
+    HomeController.$inject = ['$scope', '$routeParams', 'perfFactory', 'sharingFactory'];
     
     angular.module('perf_reportingApp').controller('HomeController', HomeController);
     

@@ -1,7 +1,8 @@
 (function() {
     
     var perfFactory = function($http) {
-        var contextPath = "http://localhost:8080/performance-report/"
+        /*var contextPath = "http://localhost:8080/performance-report/";*/
+        var contextPath = "http://10.152.28.75:8080/performance-report/";
         var factory = {};
         
         factory.runs = function() {

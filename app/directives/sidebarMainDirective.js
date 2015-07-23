@@ -16,18 +16,17 @@ var children = element.parent('li.parent_li').find(' > ul > li');
             }*/
       
    //   console.log("inside sidebarMainDirective !!!!");
-      
+        
                     element.on('click', function (e) {
-                        console.log(element);
-                    console.log('CCCCCCCCCCCCCCCLicked !!!!!!!!');
+
                     var children = element.parent().find('li');
-                        console.log('children', children);
+
                     if (children.is(":visible")) {
-                        console.log("Inside Visible");
+
                         children.hide('fast');
                         element.attr('title', 'Expand this branch').find(' > i').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
                     } else {
-                        console.log("Inside non-Visible");
+
                         children.show('fast');
                         element.attr('title', 'Collapse this branch').find(' > i').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
                     }

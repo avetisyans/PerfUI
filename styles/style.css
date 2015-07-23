@@ -179,6 +179,13 @@ li.sidebar-brand a {
     color:#000
 }
 
+.tree li a.active{
+    background:#eee;
+    border:1px solid #94a0b4;
+    color:#000
+}
+
+
 
 .tree li::before, .tree li::after {
     content:'';
@@ -228,3 +235,19 @@ li.sidebar-brand a {
 .label-as-badge {
     border-radius: 1em;
 }
+
+.sidebar-brand a:hover {
+    color:#000;
+}
+
+.sidebar-brand a.active {
+    background:#eee;
+    color:#000
+}
+
+
+/*.active {
+    background:#eee;
+    border:1px solid #94a0b4;
+    color:#000
+}*/

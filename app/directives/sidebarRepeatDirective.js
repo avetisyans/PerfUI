@@ -10,9 +10,7 @@
                 var children = that.parent('li.parent_li').find(' > ul > li');*/
 
               //  if (children.is(":visible")) {
-                console.log('element', element);
                 var children = element.parent().find('li');
-                console.log('children', children.size());
                 children.hide('fast');
                 //    that.attr('title', 'Expand this branch').find(' > i').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
    /*              } else {
