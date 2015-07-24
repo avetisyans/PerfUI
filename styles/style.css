@@ -173,16 +173,16 @@ li.sidebar-brand a {
     color: #c4c4c4;
 }
 
-.tree li a:hover{
+/*.tree li a:hover{
     background:#eee;
     border:1px solid #94a0b4;
     color:#000
-}
+}*/
 
 .tree li a.active{
-    background:#eee;
-    border:1px solid #94a0b4;
-    color:#000
+/*    background:#eee;
+    border:1px solid #94a0b4;*/
+    color: #2e76d9
 }
 
 
