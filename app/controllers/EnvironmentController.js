@@ -5,6 +5,31 @@
         var allSuites = [];
         var tabArray = [];
         
+        $scope.numberOfRecentRuns = "";
+        
+        $scope.setParentEvironment = function(numberOfRecentRuns) {
+                perfFactory.environments(numberOfRecentRuns)
+                .success(function(environments) {
+                $scope.$parent.environments = environments;
+                    $scope.$parent.environments.forEach(function(envir) {
+                        if ($scope.env.name === envir.name) {
+                            console.log('equalssssssssss');
+                            console.log('envir',envir);
+                            $scope.env = envir;
+                            return;
+                        }
+                    });
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('Error while getting Runs');
+                    console.log(data.error + ' ' + status);
+                }); 
+            
+                
+            
+                $scope.tabs = [{title: 'Some Title', content: 'Some Content'}];
+        }
+        
         function init() {
             if (envName) {
                     $scope.$parent.environments.forEach(function(env) {

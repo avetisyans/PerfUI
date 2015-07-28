@@ -25,9 +25,9 @@
         </table>
 
 <hr /><hr /><hr />-->
-<h4>Environment Details </h4><!--({{sharingFactory.runPath}})--><br />
+<b style="font-size: 17px">Environment Details </b> for recent <input style="width: 57px; text-indent: 8px" ng-model="numberOfRecentRuns" type="number" /> runs <button class="btn btn-primary" ng-click="setParentEvironment(numberOfRecentRuns)">Submit</button>  {{ numberOfRecentRuns}}<br /><br />
 <tabset>
-    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+    <tab ng-repeat="tab in tabs track by $index" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
         <table class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
@@ -41,7 +41,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="testCaseStats in tab.content">
+                <tr ng-repeat="testCaseStats in tab.content track by $index">
                     <td>{{ testCaseStats.name }}</td>
                     <td>{{ testCaseStats.totalRuns }}</td>
                     <td>{{ testCaseStats.passed }}</td>
@@ -56,3 +56,5 @@
 </tabset>
 
 <!--<pre>{{ env.testCaseData | json }}</pre>-->
+<pre>{{ env | json }}</pre>
+<pre>{{ environments | json }}</pre>
