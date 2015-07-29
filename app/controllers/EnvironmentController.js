@@ -5,20 +5,50 @@
         var allSuites = [];
         var tabArray = [];
         
-        $scope.numberOfRecentRuns = "";
+        $scope.numberOfRecentRuns = 3;
         
         $scope.setParentEvironment = function(numberOfRecentRuns) {
                 perfFactory.environments(numberOfRecentRuns)
                 .success(function(environments) {
                 $scope.$parent.environments = environments;
                     $scope.$parent.environments.forEach(function(envir) {
-                        if ($scope.env.name === envir.name) {
+                        console.log('envName', envName);
+                        if (envName === envir.name) {
                             console.log('equalssssssssss');
-                            console.log('envir',envir);
+                            console.log('envir', envir);
                             $scope.env = envir;
                             return;
                         }
                     });
+                    
+                    allSuites = [];
+                    tabArray = [];
+                    
+                    var i = 0;
+                    $scope.env.testSuites.forEach(function (testSuite) {
+                        if (i === 0) {
+                            tabArray.push({
+                            title: testSuite.name,
+                            content: testSuite.testCaseStats,
+                            active: true
+                            });
+                        } else {
+                            tabArray.push({
+                            title: testSuite.name,
+                            content: testSuite.testCaseStats
+                            });
+                        }
+                        ++i;
+                        allSuites.push.apply(allSuites, testSuite.testCaseStats);
+                    });
+                    
+                    tabArray.push({
+                        title: 'All Suites*',
+                        content: allSuites
+                    });
+                    
+                    $scope.tabs = tabArray;
+                    
                 })
                 .error(function(data, status, headers, config) {
                     console.log('Error while getting Runs');
@@ -27,7 +57,7 @@
             
                 
             
-                $scope.tabs = [{title: 'Some Title', content: 'Some Content'}];
+              //  $scope.tabs = [{title: 'Some Title', content: 'Some Content'}];
         }
         
         function init() {
@@ -49,14 +79,15 @@
                 }
          }
         
-        init();
+        //init();
+         $scope.setParentEvironment(3);
         
-        tabArray.push({
+/*        tabArray.push({
             title: 'All Suites*',
             content: allSuites
         });
         
-        $scope.tabs = tabArray;
+        $scope.tabs = tabArray;*/
     };
     
     EnvironmentController.$inject = ['$scope', '$routeParams', 'perfFactory', 'sharingFactory'];
