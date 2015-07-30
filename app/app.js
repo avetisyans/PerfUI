@@ -4,11 +4,12 @@
     app.config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                controller: '',
+                controller: 'CompareController',
                 templateUrl: 'app/views/home.html',
                 resolve: {
                     hasSidebar: function($rootScope) { 
                             $rootScope.hasSidebar = true;
+                            $rootScope.viewSidebar = "compare_sidebar";
        //                     $rootScope.viewSidebar = "env_sidebar"
                             return true; 
                     }
