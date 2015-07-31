@@ -25,7 +25,7 @@
         </table>
 
 <hr /><hr /><hr />-->
-<b style="font-size: 17px">Environment Details </b> for recent <input style="width: 57px; text-indent: 8px" ng-model="numberOfRecentRuns" type="number" /> runs <button style="height:27px; line-height:11px;" class="btn btn-primary" ng-click="setParentEvironment(numberOfRecentRuns)"> Submit</button><br /><br />
+<b style="font-size: 17px">Environment Details </b> for recent <input style="width: 57px; text-indent: 8px" ng-model="numberOfRecentRuns" type="number" /> runs <button style="height:27px; line-height:11px;" class="btn btn-primary" ng-click="setEvironment(numberOfRecentRuns)"> Submit</button><br /><br />
 <tabset>
     <tab ng-repeat="tab in tabs track by $index" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
         <table class="table table-bordered table-hover table-striped">

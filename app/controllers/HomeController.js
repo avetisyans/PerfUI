@@ -2,6 +2,7 @@
     
     var HomeController = function ($scope, $routeParams, perfFactory, sharingFactory) {
         $scope.states = {};
+        $scope.states.activeBrand = 'home';
         $scope.sharingFactory = sharingFactory;
         $scope.hello = 'Hello from Home!';
         
@@ -25,7 +26,10 @@
         $scope.displayEnvTree = function() {
              perfFactory.environments()
                 .success(function(environments) {
-                $scope.environments = environments;
+                    $scope.environments = environments;
+                    sharingFactory.environments = environments;
+                    console.log($scope.environments,'$scope.environments');
+                    console.log(sharingFactory.environments,'sharingFactory.environments');
                 })
                 .error(function(data, status, headers, config) {
                     console.log('Error while getting Runs');
@@ -33,18 +37,13 @@
                 });           
         }
         
-/*        function init() {
-            perfFactory.runs()
-                .success(function(runs) {
-                $scope.runs = runs;
-                })
-                .error(function(data, status, headers, config) {
-                    console.log('Error while getting Runs');
-                    console.log(data.error + ' ' + status);
-                });
-        }*/
+        function init() {
+            console.log('calling init from HomeController');
+            console.log('sharingFactory.environments',sharingFactory.environments);
+            $scope.environments = sharingFactory.environments;
+        }
         
-       // init();
+        init();
     };
     
     HomeController.$inject = ['$scope', '$routeParams', 'perfFactory', 'sharingFactory'];

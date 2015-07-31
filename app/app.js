@@ -38,7 +38,7 @@
                 }
              })
             .when('/environments', {
-                controller: 'EnvironmentController',
+                controller: '',
           //      templateUrl: 'app/views/environment_home.html',
                 resolve: {
                     hasSidebar: function($rootScope) {

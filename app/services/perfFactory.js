@@ -10,7 +10,7 @@
         };
         
         factory.environments = function(numberOfRecentRuns) {
-            numberOfRecentRuns = numberOfRecentRuns || 2;
+            numberOfRecentRuns = numberOfRecentRuns || 3;
             return $http.get(contextPath + "rest/environments", {params: {"numberOfRecentRuns": numberOfRecentRuns}});
         };
         

@@ -4,10 +4,10 @@
         var envName = $routeParams.envName;
         var allSuites = [];
         var tabArray = [];
-        
+        console.log('EEEEEEEEEEEEEEEEEEEEEnv');
         $scope.numberOfRecentRuns = 3;
         
-        $scope.setParentEvironment = function(numberOfRecentRuns) {
+/*        $scope.setParentEvironment = function(numberOfRecentRuns) {
                 perfFactory.environments(numberOfRecentRuns)
                 .success(function(environments) {
                 $scope.$parent.environments = environments;
@@ -58,29 +58,109 @@
                 
             
               //  $scope.tabs = [{title: 'Some Title', content: 'Some Content'}];
+        }*/
+        $scope.setInitEvironment = function(numberOfRecentRuns) {
+            $scope.environments = sharingFactory.environments;
+            
+            $scope.environments.forEach(function(envir) {
+                console.log('envName', envName);
+                if (envName === envir.name) {
+                    console.log('envir', envir);
+                    $scope.env = envir;
+                    return;
+                }
+            });
+            
+                    allSuites = [];
+                    tabArray = [];
+                    
+                    var i = 0;
+                    $scope.env.testSuites.forEach(function (testSuite) {
+                        if (i === 0) {
+                            tabArray.push({
+                            title: testSuite.name,
+                            content: testSuite.testCaseStats,
+                            active: true
+                            });
+                        } else {
+                            tabArray.push({
+                            title: testSuite.name,
+                            content: testSuite.testCaseStats
+                            });
+                        }
+                        ++i;
+                        allSuites.push.apply(allSuites, testSuite.testCaseStats);
+                    });
+                    
+                    tabArray.push({
+                        title: 'All Suites*',
+                        content: allSuites
+                    });
+                    
+                    $scope.tabs = tabArray;
+            
         }
-        
-        function init() {
-            if (envName) {
-                    $scope.$parent.environments.forEach(function(env) {
-                        if (envName === env.name) {
-                            $scope.env = env;
+
+        $scope.setEvironment = function(numberOfRecentRuns) {
+                perfFactory.environments(numberOfRecentRuns)
+                .success(function(environments) {
+                $scope.environments = environments;
+                    $scope.environments.forEach(function(envir) {
+                        console.log('envName', envName);
+                        if (envName === envir.name) {
+                            console.log('equalssssssssss');
+                            console.log('envir', envir);
+                            $scope.env = envir;
                             return;
                         }
                     });
-                
+                    
+                    allSuites = [];
+                    tabArray = [];
+                    
+                    var i = 0;
                     $scope.env.testSuites.forEach(function (testSuite) {
-                        tabArray.push({
+                        if (i === 0) {
+                            tabArray.push({
+                            title: testSuite.name,
+                            content: testSuite.testCaseStats,
+                            active: true
+                            });
+                        } else {
+                            tabArray.push({
                             title: testSuite.name,
                             content: testSuite.testCaseStats
-                        });
+                            });
+                        }
+                        ++i;
                         allSuites.push.apply(allSuites, testSuite.testCaseStats);
                     });
-                }
+                    
+                    tabArray.push({
+                        title: 'All Suites*',
+                        content: allSuites
+                    });
+                    
+                    $scope.tabs = tabArray;
+                    
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('Error while getting Runs');
+                    console.log(data.error + ' ' + status);
+                });
+            
+        }
+
+        
+        function init() {
+            console.log('init from EnvironmentController');
+            $scope.setInitEvironment(3);
          }
         
+        init();
+        
         //init();
-         $scope.setParentEvironment(3);
+        // $scope.setParentEvironment(3);
         
 /*        tabArray.push({
             title: 'All Suites*',
