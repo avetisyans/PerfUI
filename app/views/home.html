@@ -1,23 +1,17 @@
-    <h1 class="text-center">Performance Reporting App ( beta version )</h1>
-    <br />
-        <table class="table table-bordered table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th ng-repeat="env in environments">{{env.name}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="testSuite in env.testSuites">
-                    <td>{{ testCase.testCaseName }}</td>
-                    <td>{{ testCase.testType }}</td>
-                    <td>{{ testCase.result }}</td>
-                    <td>{{ testCase.duration }}</td>
-                </tr>
-            </tbody>
-        </table>
+<h1 class="text-center">Performance Reporting App ( beta version )</h1><br />
+<div style="float:right">
+<b style="font-size: 17px">Display Statistics </b> for recent
+<input style="width: 57px; text-indent: 8px" ng-model="numberOfRecentRuns" type="number" /> runs
+<button style="height:27px; line-height:11px;" class="btn btn-primary" ng-click="setEvironments(numberOfRecentRuns)"> Submit</button>
+</div>
 
-    <pre>{{ environments | json }}</pre>
+<br />
+<br />
+<br />
+<comparison-table environments="environments"></comparison-table>
+
+
+  <pre>{{ environments | json }}</pre>
 
 
 <!--<div id="wrapper toggled">
@@ -47,6 +41,3 @@
         </div>
 
     </div>-->
-
-
-

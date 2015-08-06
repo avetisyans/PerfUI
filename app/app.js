@@ -12,6 +12,10 @@
                             $rootScope.viewSidebar = "compare_sidebar";
        //                     $rootScope.viewSidebar = "env_sidebar"
                             return true; 
+                    },
+                    perfFactory: "perfFactory",
+                    environments: function (perfFactory) {
+                        return perfFactory.environments();
                     }
         }
              })            

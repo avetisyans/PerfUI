@@ -1,0 +1,10 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <th id="firstHeader">&nbsp; <div><span ng-click="collapseAll()" class="label label-success collapseAll"> Collapse all <i class="glyphicon glyphicon-collapse-down"></i></span><span ng-click="expandAll()" class="label label-success expandAll"> Expand all <i class="glyphicon glyphicon-collapse-up"></i></span></div></th><th class="tableHeaders" ng-repeat="env in environments"><div class="radiusHeader">{{ env.name }}</div></th>
+    </thead>  
+    <tbody>
+        <tr ng-class="{testCaseTitle: $index % fieldLength === 0 }" ng-repeat="data in tableData" tr-collapse>
+            <td>{{data.fieldName}} <i ng-show="$index % fieldLength === 0" style="float:right" class="glyphicon glyphicon-chevron-down"></i></td><td ng-repeat="env in environments">{{findByTestCaseAndField(env, data.testCaseName, data.fieldName)}} </td>
+        </tr>
+    </tbody>
+</table>

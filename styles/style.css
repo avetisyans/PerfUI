@@ -245,9 +245,55 @@ li.sidebar-brand a {
     color:#000
 }
 
+/* Comparison Table Styles */
+tr.testCaseTitle {
+    background: rgb(66, 68, 78);
+    color: aliceblue;
+}
 
-/*.active {
-    background:#eee;
-    border:1px solid #94a0b4;
-    color:#000
-}*/
+tr.testCaseTitle:hover {
+    background: rgb(66, 68, 78) !important;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+#firstHeader {
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+th.tableHeaders {
+    padding: 0px !important;
+    border-left: 1px solid transparent !important;
+    border-top: 1px solid transparent !important;
+    border-right: 1px solid transparent !important;
+
+}
+
+.radiusHeader {
+    background: #eee;
+    height: 50px;
+    border: 1px solid rgb(221, 221, 221);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+.collapseAll {
+    cursor: pointer;
+    float:right; 
+    font-size:12px;
+    background: #0B99BC;
+    margin-right: 0px;
+}
+
+.expandAll {
+    cursor: pointer;
+    float:right; 
+    font-size:12px;
+    background: #EE8D09;
+    margin-right: 10px;
+}
+/* End of Comparison Table Style */

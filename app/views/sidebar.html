@@ -2,7 +2,7 @@
     <ul class="nav nav-list">
         <li  class="sidebar-brand">
             <a ng-click="states.activeBrand = 'home'" ng-class="{'active': states.activeBrand === 'home'}" href="#/"><h4>Home</h4></a>
-            <a ng-click="states.activeBrand = 'envs'" ng-class="{'active': states.activeBrand === 'envs'}" href="#/environments"><h4>Evironments</h4></a>
+            <a ng-click="displayEnvTree(); states.activeBrand = 'envs'" ng-class="{'active': states.activeBrand === 'envs'}" href="#/environments"><h4>Evironments</h4></a>
             <a ng-click="displayRunTree(); states.activeBrand = 'runs'" ng-class="{'active': states.activeBrand === 'runs'}" href="#/runs"><h4>Runs</h4></a>
         </li>
         <div ng-if="viewSidebar === 'run_sidebar'" ng-include="'app/views/run_sidebar.html'"></div>
