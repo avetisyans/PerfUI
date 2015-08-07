@@ -16,13 +16,11 @@
         init();*/
         $scope.environments = environments.data;
         $scope.numberOfRecentRuns = 3;
-        console.log('$scope.environments',environments.data);
         $scope.title = "CompareControllerTitle";
         
         $scope.setEvironments = function(numberOfRecentRuns) {
                 perfFactory.environments(numberOfRecentRuns)
                 .success(function(environments) {
-                    console.log('environments',environments);
                 $scope.environments = environments;
                     
                     $timeout(function() {
@@ -32,13 +30,11 @@
                             if ($(val).hasClass("collapsed")) {
                                 val.click();
                             }
-                        });
-                        
-                        $('tr.testCaseTitle').each(function (el, val) {
+                            
                             if (!$(val).hasClass("collapsed")) {
                                 val.click();
                             }
-                        });  
+                        });
                     });
                     
 
