@@ -23,7 +23,8 @@
                             el.find('td > i').addClass("glyphicon-chevron-right").removeClass("glyphicon-chevron-down");
 
                             for (var i = 1; i < avgTitles.length; ++i) {
-                                $(avgTitles[i]).text('successfulAvg: ' + $(nextTDs[i - 1]).text());
+                                $(avgTitles[i]).html('successfulAvg: ' + $(nextTDs[i - 1]).html());
+                                
                             }
                         }
                         el.data('clicks', !clicks);

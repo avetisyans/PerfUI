@@ -299,3 +299,17 @@ th.tableHeaders {
     margin-bottom:4px;
 }
 /* End of Comparison Table Style */
+
+/* coloring Avgs */
+.slow {
+    color: brown;
+}
+
+.normal {
+    color: #0B99BC;
+}
+
+.fast {
+    color: forestgreen
+}
+/* End of coloring */
