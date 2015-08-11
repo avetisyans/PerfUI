@@ -1,15 +1,17 @@
-<table class="table table-bordered table-hover">
+<comparison-checkbox></comparison-checkbox>
+
+<table id="comparisonTable" class="table table-bordered table-hover">
     <thead>
-        <th id="firstHeader">&nbsp; <div><span ng-click="collapseAll()" class="label label-success collapseAll"> Collapse all <i class="glyphicon glyphicon-collapse-down"></i></span><span ng-click="expandAll()" class="label label-success expandAll"> Expand all <i class="glyphicon glyphicon-collapse-up"></i></span></div></th><th class="tableHeaders" ng-repeat="env in environments track by $index"><div class="radiusHeader">{{ env.name }}</div></th>
+        <th id="firstHeader">&nbsp; <div><span  ng-click="selectEnvs()" class="label label-success selectEnv"><span ng-show="envCheckBox==false"> Open Environments Select box</span><span ng-show="envCheckBox==true"> Close Environments Select box</span> </span><span ng-click="collapseAll()" class="label label-success collapseAll"> Collapse all <i class="glyphicon glyphicon-collapse-down"></i></span><span ng-click="expandAll()" class="label label-success expandAll"> Expand all <i class="glyphicon glyphicon-collapse-up"></i></span></div></th><th ng-show="env.state" style="cursor:move;" class="tableHeaders dragAccept" ng-repeat="env in environments track by $index"><div class="radiusHeader">{{ env.name }}</div></th>
     </thead>  
     <tbody>
         <tr ng-class="{testCaseTitle: $index % fieldLength === 0 }" ng-repeat="data in tableData track by $index" tr-collapse>
-            <td>{{data.fieldName}} <i ng-show="$index % fieldLength === 0" style="float:right" class="glyphicon glyphicon-chevron-down"></i></td><td ng-repeat="env in environments track by $index"><span ng-class="{
-  fast: findByTestCaseAndField(env, data.testCaseName, data.fieldName).speed === 'fast',
-  normal: findByTestCaseAndField(env, data.testCaseName, data.fieldName).speed === 'normal',
-  slow: findByTestCaseAndField(env, data.testCaseName, data.fieldName).speed === 'slow'
+            <td>{{data.fieldName}} <i ng-show="$index % fieldLength === 0" style="float:right" class="glyphicon glyphicon-chevron-down"></i></td><td class="envCell" ng-show="env.state" ng-repeat="env in environments track by $index" ng-class="{
+  success: findByTestCaseAndField(env, data.testCaseName, data.fieldName).speed === 'fast',
+  warning: findByTestCaseAndField(env, data.testCaseName, data.fieldName).speed === 'normal',
+  danger: findByTestCaseAndField(env, data.testCaseName, data.fieldName).speed === 'slow'
             
-}">{{findByTestCaseAndField(env, data.testCaseName, data.fieldName).value}}</span> </td>
+}">{{findByTestCaseAndField(env, data.testCaseName, data.fieldName).value}}</td>
         </tr>
     </tbody>
 </table>

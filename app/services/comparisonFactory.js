@@ -71,24 +71,24 @@
                             if (successfulArray.indexOf(testFieldName) >= 0) {
                                 if (env.testSuites[i].testCaseStats[j][testFieldName] < 30000) {
 
-                                    console.log('testFieldName', testFieldName);
-                                    console.log('env.testSuites[i].testCaseStats[j][testFieldName]', env.testSuites[i].testCaseStats[j][testFieldName]);
+                                   // console.log('testFieldName', testFieldName);
+                                   // console.log('env.testSuites[i].testCaseStats[j][testFieldName]', env.testSuites[i].testCaseStats[j][testFieldName]);
                                     obj.value = env.testSuites[i].testCaseStats[j][testFieldName];
                                     obj.speed = 'fast';
                                     return obj;
                                 }
                                 if (env.testSuites[i].testCaseStats[j][testFieldName] >= 30000 && env.testSuites[i].testCaseStats[j][testFieldName] <= 35000) {
 
-                                    console.log('testFieldName', testFieldName);
-                                    console.log('env.testSuites[i].testCaseStats[j][testFieldName]', env.testSuites[i].testCaseStats[j][testFieldName]);
+                                   // console.log('testFieldName', testFieldName);
+                                   // console.log('env.testSuites[i].testCaseStats[j][testFieldName]', env.testSuites[i].testCaseStats[j][testFieldName]);
                                     obj.value = env.testSuites[i].testCaseStats[j][testFieldName];
                                     obj.speed = 'normal';
                                     return obj;
                                 }
                                 if (env.testSuites[i].testCaseStats[j][testFieldName] > 35000) {
 
-                                    console.log('testFieldName', testFieldName);
-                                    console.log('env.testSuites[i].testCaseStats[j][testFieldName]', env.testSuites[i].testCaseStats[j][testFieldName]);
+                                   // console.log('testFieldName', testFieldName);
+                                   // console.log('env.testSuites[i].testCaseStats[j][testFieldName]', env.testSuites[i].testCaseStats[j][testFieldName]);
                                     obj.value = env.testSuites[i].testCaseStats[j][testFieldName];
                                     obj.speed = 'slow';
                                     return obj;

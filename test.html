@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="perf_reportingApp" ng-cloak>
+<html >
 
 <head>
     <title>Performance Report</title>
@@ -9,33 +9,16 @@
 
 </head>
 
-<body ng-controller="HomeController">
+<body >
     <div id="wrapper">
-        <!--<run-sidebar></run-sidebar>-->
-<!--        <div class="container" style="padding-top: 10px">-->
-<!--            <div class="row">
-                <div class="col-md-2 col-sm-2">
-                <div ng-if="hasSidebar" ng-include="'app/views/sidebar.html'"></div>
-                </div>
-                <div class="col-md-10 col-sm-10">
-                    <div class="container">-->
-        <div ng-if="hasSidebar" ng-include="'app/views/sidebar.html'"></div>
-        <div id="page-content-wrapper">
-            <div class="page-content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div ng-view></div>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </div>
-                        
-<!--                    </div>
-                </div>
-            </div>-->
- <!--       </div>-->
+<table id="comparisonTable" class="table table-bordered table-hover">
+    <thead>
+        <tr><th id="firstHeader">&nbsp; <div><span ng-click="collapseAll()" class="label label-success collapseAll"> Collapse all <i class="glyphicon glyphicon-collapse-down"></i></span><span ng-click="expandAll()" class="label label-success expandAll"> Expand all <i class="glyphicon glyphicon-collapse-up"></i></span></div></th><!-- ngRepeat: env in environments track by $index --><th class="tableHeaders dragAccept ng-scope" ng-repeat="env in environments track by $index"><div class="radiusHeader ng-binding">singleSlice_with_5k_objects1</div></th><!-- end ngRepeat: env in environments track by $index --><th class="tableHeaders dragAccept ng-scope" ng-repeat="env in environments track by $index"><div class="radiusHeader ng-binding">singleSlice_with_5k_objects2</div></th><!-- end ngRepeat: env in environments track by $index -->
+    </tr></thead>  
+    <tbody>
+        <!-- Type Test Code here -->
+    </tbody>
+</table>
     </div>
     <!-- angular modules -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -59,9 +42,13 @@
     <script src="app/directives/sidebarRepeatDirective.js"></script>
     <script src="app/directives/comparisonTable.js"></script>
     <script src="app/directives/trCollapse.js"></script>
-    <script src="app/directives/comparisonCheckBox.js"></script>
     
 
 <!--    <script src="app/services/sharingFactory.js"></script> -->
+    <script>
+        $(document).ready(function() {
+            
+        })
+    </script>
 </body>
 </html>

@@ -14,6 +14,11 @@
         }
         
         init();*/
+        $scope.displayDelete = function() {
+            console.log('displaying mark...');
+            $scope.mark = true;
+        }
+        
         $scope.environments = environments.data;
         $scope.numberOfRecentRuns = 3;
         $scope.title = "CompareControllerTitle";

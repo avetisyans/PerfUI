@@ -1,0 +1,6 @@
+<div ng-show="envCheckBox" class="well" id="checkBoxDiv">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="env in environments"><label>{{env.name}} <input type="checkbox" ng-model="env.state" ng-init="env.state = true" /></label></li>
+    </ul>
+</div>
+
