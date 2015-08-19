@@ -29,7 +29,6 @@
                             for (var i = 1; i < avgTitles.length; ++i) {
                                 var avgClass= $(nextTDs[i-1]).attr("class");
                                 //console.log('avgClass',avgClass);
-                                console.log('$(nextTDs[i - 1]).text()',$(nextTDs[i - 1]).text(),$(nextTDs[i - 1]).text().length);
                                 if ($(nextTDs[i - 1]).text().length === 0) {
                                     
                                     var noData = "<i>No Data available for selected runs</i>";
@@ -46,11 +45,14 @@
 
                 if (scope.$last) {
                     $timeout(function () {
-                        console.log('calling timeout', el);
-                        $('tr.testCaseTitle').each(function (el, val) {
+/*                        $('tr.testCaseTitle').each(function (el, val) {
                             val.click();
-                        });
-                        
+                        });*/
+                         $('tr.testCaseTitle').each(function (el, val) {
+                        if (!$(val).hasClass("collapsed")) {
+                            val.click();
+                        }
+                    });
                         $('#comparisonTable').dragtable({dragaccept:'.dragAccept'});
                         
                     });

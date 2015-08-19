@@ -1,7 +1,7 @@
 (function () {
     var app = angular.module('perf_reportingApp', ['ngRoute','ui.bootstrap']);
 
-    app.config(function($routeProvider) {
+    app.config(function($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
                 controller: 'CompareController',
@@ -63,8 +63,10 @@
                     }
                 }
              })
-             
             .otherwise( { redirectTo: '/' });
+        
+            $httpProvider.defaults.cache = false;
+            //$httpProvider.defaults.cache = $cacheFactoryProvider('myCache', {capacity: 10});
     });
     
 }());

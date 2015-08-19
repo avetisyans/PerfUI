@@ -34,14 +34,6 @@
                     console.log(data.error + ' ' + status);
                 });           
         }
-        
-/*        function init() {
-            console.log('calling init from HomeController');
-            console.log('sharingFactory.environments',sharingFactory.environments);
-            $scope.environments = sharingFactory.environments;
-        }
-        
-        init();*/
     };
     
     HomeController.$inject = ['$scope', '$routeParams', 'perfFactory', 'sharingFactory'];
