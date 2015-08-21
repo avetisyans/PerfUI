@@ -366,3 +366,50 @@ td.success {
 
 
 /* End of comparisonCheckBox */
+
+.chartMode {
+    text-decoration: none;
+    display: block;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 45px;;
+    border: 2px solid #eee;
+    margin-top: 40px;
+    margin-left: auto;
+    border-radius: 10px;
+    color: #eee;
+    font-weight: 200;
+    font-size: 15px;
+    margin-right: auto;
+}
+
+.chartMode:hover {
+    text-decoration: none;
+    background: #eee;
+    color: black;
+    cursor: pointer;
+}
+
+.chartModeClose {
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 45px;;
+    border: 2px solid #eee;
+    margin-top: 40px;
+    margin-left: auto;
+    border-radius: 10px;
+    color: black;
+    background: #eee;
+    font-weight: 200;
+    font-size: 15px;
+    margin-right: auto;
+}
+
+.chartModeClose:hover {
+    text-decoration: none;
+}

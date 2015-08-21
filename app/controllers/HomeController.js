@@ -5,6 +5,7 @@
         $scope.states.activeBrand = 'home';
         $scope.sharingFactory = sharingFactory;
         $scope.hello = 'Hello from Home!';
+        $scope.chartMode = true;
         
         $scope.toggleTree = function ($event) {
             $($event.currentTarget).parent().children('ul.tree').toggle(200);
@@ -33,6 +34,15 @@
                     console.log('Error while getting Runs');
                     console.log(data.error + ' ' + status);
                 });           
+        }
+        
+        $scope.displayChartLabel = function() {
+            $scope.chartLabel = true;
+        }
+        
+        $scope.toggleChartMode = function() {
+            $scope.chartMode = !$scope.chartMode;
+            return $scope.chartMode;
         }
     };
     

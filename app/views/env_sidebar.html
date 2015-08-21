@@ -4,25 +4,6 @@
 
 <div class="tree"  ng-controller="HomeController">
     <ul>
-<!--        <li>
-            <span class="label label-success"><i class="glyphicon glyphicon-minus-sign"></i> Monday, January 7: 8.00 hours</span>
-            <ul>
-                <li>
-                    <a href=""><span>8.00</span></a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <span class="label label-success"><i class="glyphicon glyphicon-minus-sign"></i> Tuesday, January 8: 8.00 hours</span>
-            <ul>
-                <li>
-                     <a href=""><span>2.00</span></a>
-                </li>
-                <li>
-                     <a href=""><span>3.00</span></a>
-                </li>
-            </ul>
-        </li> -->
         <li  ng-repeat = "env in environments">
             <span style="font-size:14px" style="cursor:pointer" sidebar-main-directive class="label"><a ng-click="states.activeItemId=env.name; sharingFactory.runPath=env.name" ng-class="{'active': env.name === states.activeItemId}" href="#/environments/{{env.name}}">{{env.name}}</a></span>
         </li>

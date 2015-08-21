@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('perf_reportingApp', ['ngRoute','ui.bootstrap']);
+    var app = angular.module('perf_reportingApp', ['ngRoute','ui.bootstrap', 'n3-line-chart']);
 
     app.config(function($routeProvider, $httpProvider) {
         $routeProvider
@@ -63,6 +63,17 @@
                     }
                 }
              })
+            .when('/chart', {
+                controller: 'ChartController',
+                templateUrl: 'app/views/chart.html',
+                resolve: {
+                    hasSidebar: function($rootScope) {
+                        $rootScope.hasSidebar = true;
+                        $rootScope.viewSidebar = "compare_sidebar";
+                        return true;
+                    }
+                }
+            })
             .otherwise( { redirectTo: '/' });
         
             $httpProvider.defaults.cache = false;
