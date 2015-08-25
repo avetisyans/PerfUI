@@ -71,6 +71,9 @@
                         $rootScope.hasSidebar = true;
                         $rootScope.viewSidebar = "compare_sidebar";
                         return true;
+                    },
+                    environments: function (perfFactory) {
+                        return perfFactory.environments();
                     }
                 }
             })

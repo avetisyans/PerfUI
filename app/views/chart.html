@@ -2,8 +2,32 @@
 <div style="float:right">
 <b style="font-size: 17px">Environment Details </b> for recent <input style="width: 57px; text-indent: 8px" ng-model="numberOfRecentRuns" type="number" /> runs <button style="height:27px; line-height:11px;" class="btn btn-primary" ng-click="setEvironment(numberOfRecentRuns)"> Submit</button>
 </div><br /><br />-->
-<h3 align="center">Chart With Sample Data</h3><br/><br/><br/>
-  <div class="container">     <!--<div google-chart chart="chart" style="{{chart.cssStyle}}" on-select="seriesSelected(selectedItem)"></div>-->
+
+
+<div style="float:right">
+<form class="form-inline" ng-submit="getTestResults()">
+    <div class="form-group">
+        <select class="form-control" name="envId" ng-model="selectedEnv" ng-options="env as env.name for env in environments">
+            <option value=""> -- Select an Environment -- </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select class="form-control" name="testCaseId" ng-model="selectedTestcase" ng-options="testCase as testCase.name for testCase in testCases">
+            <option value=""> -- Select a TestCase -- </option>
+        </select> 
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="numberOfRecentDays" style="width: 150px; text-indent: 8px" ng-model="numberOfRecentDays" type="number" placeholder="number of days" /> 
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+<div style="clear: both"></div>
+<div ng-show="availableData">
+  <div style="margin-top: 100px;" class="container">
     <linechart data="data" options="options" height="500" width="1000"></linechart>
   </div>
+</div>
+<div style="margin-top: 100px;" ng-show="availableData === false">
+    <h3 align="center"> No Data Available </h3>
 </div>

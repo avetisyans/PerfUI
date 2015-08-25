@@ -38,6 +38,7 @@
                     console.log(data.error + ' ' + status);
                 });
         }
+        
     };
 
     CompareController.$inject = ['$scope', '$routeParams', '$timeout', 'perfFactory', 'sharingFactory', 'environments', '$cacheFactory'];

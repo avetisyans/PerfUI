@@ -25,6 +25,18 @@
             return $http.get(contextPath + "rest/environments", {params: {"numberOfRecentRuns": numberOfRecentRuns}, cache: myCache });
         };
         
+        factory.allEnvironments = function() {
+            return $http.get(contextPath + "rest/allEnvironments");
+        }
+        
+        factory.testCases = function() {
+            return $http.get(contextPath + "rest/testCases");
+        }
+        
+        factory.testResults = function(envId, testCaseId, numberOfRecentDays) {
+            return $http.get(contextPath + "rest/testResults", {params: {"envId": envId, "testCaseId": testCaseId, "numberOfRecentDays": numberOfRecentDays}})
+        }
+        
         return factory;
     };
     
