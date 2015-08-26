@@ -367,6 +367,8 @@ td.success {
 
 /* End of comparisonCheckBox */
 
+/* chart style */
+
 .chartMode {
     text-decoration: none;
     display: block;
@@ -413,3 +415,24 @@ td.success {
 .chartModeClose:hover {
     text-decoration: none;
 }
+
+/* end of chart style */
+
+/* Run input form */
+
+.runForm {
+    margin-left: 21px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.runForm input {
+    height: 28px;
+    padding: 0 0 0 10px;
+}
+
+.runForm button {
+    height: 28px;
+    line-height: 14px;
+}
+
+/* End of Run input form */

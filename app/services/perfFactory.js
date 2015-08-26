@@ -25,6 +25,14 @@
             return $http.get(contextPath + "rest/environments", {params: {"numberOfRecentRuns": numberOfRecentRuns}, cache: myCache });
         };
         
+        factory.parentRuns(numberOfParentRuns) {
+            if (numberOfParentRuns != 0) {
+                numberOfParentRuns = numberOfParentRuns || 3;
+            }
+            
+            return $http.get(contextPath + "rest/runs", {params: {"numberOfParentRuns": numberOfParentRuns}});
+        }
+        
         factory.allEnvironments = function() {
             return $http.get(contextPath + "rest/allEnvironments");
         }
@@ -46,3 +54,11 @@
     
     
 }());
+
+
+
+
+
+
+
+//perfFactory.parentRuns(numberOfParentRuns)

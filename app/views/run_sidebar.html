@@ -9,6 +9,14 @@
         </li>-->
 
 <div ng-cloak class="tree"  ng-controller="HomeController">
+    <div class="runForm">
+    <form class="form-inline" ng-submit="getParentRuns(numberOfParentRuns)">
+        <div class="form-group">
+            <input class="form-control" name="numberOfParentRuns" style="width: 180px;" ng-model="numberOfParentRuns" type="number" placeholder="Max # of parent Runs" /> 
+        </div>
+        <button type="submit" class="btn btn-default">Display</button>
+    </form>
+    </div>
     <ul>
 <!--        <li>
             <span class="label label-success"><i class="glyphicon glyphicon-minus-sign"></i> Monday, January 7: 8.00 hours</span>

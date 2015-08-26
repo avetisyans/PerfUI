@@ -137,8 +137,12 @@
                 });
 
             }
-            
+
             $scope.options = {
+/*                stacks: [{
+                        axes: "y",
+                        series: [ "successfulMin", "successfulMax", "successfulAvg" ]
+                        }],*/
                 axes: {
                     x: {
                         type: 'date',
@@ -148,7 +152,7 @@
                     }
                 },
                 lineMode: 'cardinal',
-                transition: {
+/*                transition: {
                     ease: 'elastic',
                     duration: 1000,
                     delay: 50
@@ -156,7 +160,7 @@
                 tension: 0.7,
                 drawLegend: true,
                 drawDots: true,
-                columnsHGap: 3,
+                columnsHGap: 3,*/
                 tooltip: {
                     mode: 'scrubber',
                     formatter: function (x, y, series) {
@@ -166,56 +170,59 @@
                     }
                 },
                 series: [{
-                            y: "successfulMin",
-                            label: "Min",
-                            type: "area",
-                            striped: true,
-                            color: "#ff7f0e",
-                            dotSize: 5
+                        id: "successfulMin",
+                        y: "successfulMin",
+                        label: "Min",
+                       // type: "area",
+                        striped: true,
+                        color: "#5CB85C",
+                        dotSize: 5
                         },
-                        {
-                            y: "successfulMax",
-                            label: "Max",
-                            type: "area",
-                            striped: true,
-                            color: "#00008e",
-                            dotSize: 6
+                    {
+                        id: "successfulMax",
+                        y: "successfulMax",
+                        label: "Max",
+                      //  type: "area",
+                        striped: true,
+                        color: "#D9534F",
+                        dotSize: 6
                         },
-                        {
-                            y: "successfulAvg",
-                            label: "Avg",
-                            type: "area",
-                            striped: true,
-                            color: "#ff4848",
-                            dotSize: 7
+                    {
+                        id: "successfulAvg",
+                        y: "successfulAvg",
+                        label: "Avg",
+                       // type: "area",
+                        striped: true,
+                        color: "blue",
+                        dotSize: 7
                         }]
             };
-            
+
             function getStats(x, y, series) {
                 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 var yField = "";
                 for (var i = 0; i < data.dateStatistics.length; ++i) {
                     if (data.dateStatistics[i].date === x) {
                         /*console.log(new Date(x));*/
-/*                        for (var t = 0; t < Object.keys(data.dateStatistics[i]).length; ++t) {
-                            if (data.dateStatistics[i][Object.keys(data.dateStatistics[i])[t]] === y) {
-                                yField = Object.keys(data.dateStatistics[i])[t];
-                            }
-                        }*/
+                        /*                        for (var t = 0; t < Object.keys(data.dateStatistics[i]).length; ++t) {
+                                                    if (data.dateStatistics[i][Object.keys(data.dateStatistics[i])[t]] === y) {
+                                                        yField = Object.keys(data.dateStatistics[i])[t];
+                                                    }
+                                                }*/
                         yField = series.y;
                         var date = new Date(x);
                         var dd = date.getDate();
                         var mm = date.getMonth();
                         var yy = date.getFullYear();
                         return "Total Runs: " + data.dateStatistics[i].totalRuns + " | " +
-                               " \n Passed: " + data.dateStatistics[i].passed + " | " +
-                               " \n Failed: " + data.dateStatistics[i].failed +" | " +
-                               yField + " is: " + y + " | " + 
-                               "Date: " + dd + " " + months[mm] + " " + yy;
+                            " \n Passed: " + data.dateStatistics[i].passed + " | " +
+                            " \n Failed: " + data.dateStatistics[i].failed + " | " +
+                            yField + " is: " + y + " | " +
+                            "Date: " + dd + " " + months[mm] + " " + yy;
                     }
                 }
             }
-            
+
         }
 
         $scope.data = [
