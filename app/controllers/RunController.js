@@ -10,7 +10,7 @@
         function init() {
 
             if (childRunId) {
-                $scope.$parent.runs.forEach(function (run) {
+                sharingFactory.runs.forEach(function (run) {
                     run.children.forEach(function (childRun) {
                         if (childRun.id === childRunId) {
                             $scope.run = childRun;

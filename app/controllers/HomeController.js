@@ -14,7 +14,8 @@
         $scope.displayRunTree = function() {
              perfFactory.runs()
                 .success(function(runs) {
-                $scope.runs = runs;
+                 sharingFactory.runs = runs;
+                 $scope.runs = runs;
                 })
                 .error(function(data, status, headers, config) {
                     console.log('Error while getting Runs');
@@ -49,7 +50,8 @@
             perfFactory.parentRuns(numberOfParentRuns)
             .success(function(runs) {
                 console.log('runs are_______________________+++++++++++____________', runs);
-                $scope.runs = runs;
+                    sharingFactory.runs = runs;
+                    $scope.runs = runs;
             })
             .error(function(data, status, headers, config) {
                 console.log('Error while getting ParentRuns');

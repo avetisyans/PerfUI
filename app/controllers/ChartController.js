@@ -2,6 +2,7 @@
 
     var ChartController = function ($scope, perfFactory) {
 
+        $scope.envIds = [];
         perfFactory.allEnvironments().success(function (envs) {
                 $scope.environments = envs;
             })
@@ -17,9 +18,25 @@
                 console.log('Error while getting Runs');
                 console.log(data.error + ' ' + status);
             });
+        
+        $scope.setEnvs = function(env) {
+            console.log('env', env);
+            console.log('$scope.environments', $scope.environments);
+        }
 
         $scope.getTestResults = function () {
-            perfFactory.testResults($scope.selectedEnv.id, $scope.selectedTestcase.id, $scope.numberOfRecentDays).success(function (data) {
+            $scope.envIds = [];
+            for (var k = 0; k < $scope.environments.length; ++k) {
+                if ($scope.environments[k].state) {
+                    if ($scope.environments[k].state === true) {
+                        $scope.envIds.push($scope.environments[k].id);
+                    }
+                }
+            }
+            
+            console.log('$scope.envIds',$scope.envIds);
+            
+            perfFactory.testResults($scope.envIds, $scope.selectedTestcase.id, $scope.numberOfRecentDays).success(function (data) {
                     if (data.dateStatistics.length === 0) {
                         $scope.availableData = false;
                     } else {
@@ -176,7 +193,7 @@
                        // type: "area",
                         striped: true,
                         color: "#5CB85C",
-                        dotSize: 5
+                        dotSize: 4
                         },
                     {
                         id: "successfulMax",
@@ -185,7 +202,7 @@
                       //  type: "area",
                         striped: true,
                         color: "#D9534F",
-                        dotSize: 6
+                        dotSize: 8
                         },
                     {
                         id: "successfulAvg",
@@ -194,7 +211,7 @@
                        // type: "area",
                         striped: true,
                         color: "blue",
-                        dotSize: 7
+                        dotSize: 6
                         }]
             };
 

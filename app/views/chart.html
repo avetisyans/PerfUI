@@ -4,30 +4,53 @@
 </div><br /><br />-->
 
 
-<div style="float:right">
-<form class="form-inline" ng-submit="getTestResults()">
-    <div class="form-group">
-        <select class="form-control" name="envId" ng-model="selectedEnv" ng-options="env as env.name for env in environments">
-            <option value=""> -- Select an Environment -- </option>
-        </select>
+
+<!--<div style="clear: both"></div>-->
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+<!--        <div style="float:right">-->
+        <form class="form-inline" ng-submit="getTestResults()">
+            <div class="form-group">
+<!--                <select multiple="true" class="form-control" name="envId" ng-model="selectedEnv" ng-options="env as env.name for env in environments">
+                    <option value=""> -- Select an Environment -- </option>
+                </select>-->
+                <div class="well" style="overflow-y: scroll">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="env in environments"><label>{{env.name}} <input type="checkbox" ng-model="env.state" ng-change="setEnvs(env)"></label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="testCaseId" ng-model="selectedTestcase" ng-options="testCase as testCase.name for testCase in testCases">
+                    <option value=""> -- Select a TestCase -- </option>
+                </select> 
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="numberOfRecentDays" style="width: 150px; text-indent: 8px" ng-model="numberOfRecentDays" type="number" placeholder="number of days" /> 
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+<!--        </div>-->
     </div>
-    <div class="form-group">
-        <select class="form-control" name="testCaseId" ng-model="selectedTestcase" ng-options="testCase as testCase.name for testCase in testCases">
-            <option value=""> -- Select a TestCase -- </option>
-        </select> 
+    <div class="panel-body">
+        <div ng-show="availableData">
+            <div  class="container">
+                <linechart data="data" options="options" height="400" width="1000"></linechart>
+            </div>
+        </div>
+        <div ng-show="availableData === false">
+            <h3 align="center"> No Data Available </h3>
+        </div>
     </div>
-    <div class="form-group">
-        <input class="form-control" name="numberOfRecentDays" style="width: 150px; text-indent: 8px" ng-model="numberOfRecentDays" type="number" placeholder="number of days" /> 
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
 </div>
-<div style="clear: both"></div>
-<div ng-show="availableData">
-  <div style="margin-top: 100px;" class="container">
-    <linechart data="data" options="options" height="500" width="1000"></linechart>
-  </div>
-</div>
-<div style="margin-top: 100px;" ng-show="availableData === false">
-    <h3 align="center"> No Data Available </h3>
-</div>
+
+
+
+
+<!--<div ng-show="envCheckBox" class="well" id="checkBoxDiv">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="env in environments"><label>{{env.name}} <input type="checkbox" ng-model="env.state" ng-init="env.state = true" /></label></li>
+    </ul>
+</div>-->

@@ -41,8 +41,8 @@
             return $http.get(contextPath + "rest/testCases");
         }
         
-        factory.testResults = function(envId, testCaseId, numberOfRecentDays) {
-            return $http.get(contextPath + "rest/testResults", {params: {"envId": envId, "testCaseId": testCaseId, "numberOfRecentDays": numberOfRecentDays}})
+        factory.testResults = function(envIds, testCaseId, numberOfRecentDays) {
+            return $http.get(contextPath + "rest/testResults", {params: {"envIds": envIds, "testCaseId": testCaseId, "numberOfRecentDays": numberOfRecentDays}})
         }
         
         return factory;

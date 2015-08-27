@@ -5,7 +5,7 @@
     var sharingFactory = function() {
         var factory = {};
         
-        factory.runPath = "test --> path";
+        factory.runs = [];
         
         return factory;
     };
