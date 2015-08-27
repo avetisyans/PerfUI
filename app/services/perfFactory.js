@@ -25,7 +25,7 @@
             return $http.get(contextPath + "rest/environments", {params: {"numberOfRecentRuns": numberOfRecentRuns}, cache: myCache });
         };
         
-        factory.parentRuns(numberOfParentRuns) {
+        factory.parentRuns = function(numberOfParentRuns) {
             if (numberOfParentRuns != 0) {
                 numberOfParentRuns = numberOfParentRuns || 3;
             }
