@@ -11,7 +11,7 @@
                 console.log(data.error + ' ' + status);
             });
 
-        perfFactory.testCases().success(function (testCases) {
+            perfFactory.testCases().success(function (testCases) {
                 $scope.testCases = testCases;
             })
             .error(function (data, status, headers, config) {
@@ -37,7 +37,7 @@
             console.log('$scope.envIds',$scope.envIds);
             
             perfFactory.testResults($scope.envIds, $scope.selectedTestcase.id, $scope.numberOfRecentDays).success(function (data) {
-                    if (data.dateStatistics.length === 0) {
+                    if (data.chartData[0].dateStatistics.length === 0) {
                         $scope.availableData = false;
                     } else {
                         $scope.availableData = true;
@@ -144,16 +144,25 @@
             }; */
 
         function setDataAndOptionsForChart(data) {
-            $scope.data = [];
-            for (var i = 0; i < data.dateStatistics.length; ++i) {
-                $scope.data.push({
-                    x: data.dateStatistics[i].date,
-                    successfulMin: data.dateStatistics[i].successfulMin,
-                    successfulMax: data.dateStatistics[i].successfulMax,
-                    successfulAvg: data.dateStatistics[i].successfulAvg
-                });
+            console.log('SSSSSSSSSSSSSeting DATA', data.chartData[0]);
+            $scope.datas = [];
+            
+            for(var m = 0; m < data.chartData.length; ++m) {
+                var _data = [];
+                for (var i = 0; i < data.chartData[m].dateStatistics.length; ++i) {
+                    console.log('aaa', data.chartData[m]);
+                    
+                    _data.push({
+                        x: data.chartData[m].dateStatistics[i].date,
+                        successfulMin: data.chartData[m].dateStatistics[i].successfulMin,
+                        successfulMax: data.chartData[m].dateStatistics[i].successfulMax,
+                        successfulAvg: data.chartData[m].dateStatistics[i].successfulAvg
+                    });
 
+                }
+                $scope.datas.push(_data);
             }
+            
 
             $scope.options = {
 /*                stacks: [{
@@ -218,24 +227,37 @@
             function getStats(x, y, series) {
                 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 var yField = "";
-                for (var i = 0; i < data.dateStatistics.length; ++i) {
-                    if (data.dateStatistics[i].date === x) {
-                        /*console.log(new Date(x));*/
-                        /*                        for (var t = 0; t < Object.keys(data.dateStatistics[i]).length; ++t) {
-                                                    if (data.dateStatistics[i][Object.keys(data.dateStatistics[i])[t]] === y) {
-                                                        yField = Object.keys(data.dateStatistics[i])[t];
-                                                    }
-                                                }*/
-                        yField = series.y;
-                        var date = new Date(x);
-                        var dd = date.getDate();
-                        var mm = date.getMonth();
-                        var yy = date.getFullYear();
-                        return "Total Runs: " + data.dateStatistics[i].totalRuns + " | " +
-                            " \n Passed: " + data.dateStatistics[i].passed + " | " +
-                            " \n Failed: " + data.dateStatistics[i].failed + " | " +
-                            yField + " is: " + y + " | " +
-                            "Date: " + dd + " " + months[mm] + " " + yy;
+/*                for (var i = 0; i < data.chartData[m].dateStatistics.length; ++i) {
+                    for (var i = 0; i < data.dateStatistics.length; ++i) {
+                        if (data.dateStatistics[i].date === x) {
+                            yField = series.y;
+                            var date = new Date(x);
+                            var dd = date.getDate();
+                            var mm = date.getMonth();
+                            var yy = date.getFullYear();
+                            return "Total Runs: " + data.dateStatistics[i].totalRuns + " | " +
+                                " \n Passed: " + data.dateStatistics[i].passed + " | " +
+                                " \n Failed: " + data.dateStatistics[i].failed + " | " +
+                                yField + " is: " + y + " | " +
+                                "Date: " + dd + " " + months[mm] + " " + yy;
+                        }
+                    }
+                }*/
+                //return "a";
+                for(var m = 0; m < data.chartData.length; ++m) {
+                    for (var i = 0; i < data.chartData[m].dateStatistics.length; ++i) {
+                        if (data.chartData[m].dateStatistics[i].date === x) {
+                            yField = series.y;
+                            var date = new Date(x);
+                            var dd = date.getDate();
+                            var mm = date.getMonth();
+                            var yy = date.getFullYear();
+                            return "Total Runs: " + data.chartData[m].dateStatistics[i].totalRuns + " | " +
+                                " \n Passed: " + data.chartData[m].dateStatistics[i].passed + " | " +
+                                " \n Failed: " + data.chartData[m].dateStatistics[i].failed + " | " +
+                                yField + " is: " + y + " | " +
+                                "Date: " + dd + " " + months[mm] + " " + yy;
+                        }
                     }
                 }
             }

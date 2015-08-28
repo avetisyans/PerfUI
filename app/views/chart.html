@@ -16,7 +16,7 @@
 <!--                <select multiple="true" class="form-control" name="envId" ng-model="selectedEnv" ng-options="env as env.name for env in environments">
                     <option value=""> -- Select an Environment -- </option>
                 </select>-->
-                <div class="well" style="overflow-y: scroll">
+                <div class="well" style="overflow-y: scroll; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="env in environments"><label>{{env.name}} <input type="checkbox" ng-model="env.state" ng-change="setEnvs(env)"></label></li>
                     </ul>
@@ -37,7 +37,8 @@
     <div class="panel-body">
         <div ng-show="availableData">
             <div  class="container">
-                <linechart data="data" options="options" height="400" width="1000"></linechart>
+                <linechart data="datas[0]" options="options" height="400" width="1000"></linechart>
+                <linechart data="datas[1]" options="options" height="400" width="1000"></linechart>
             </div>
         </div>
         <div ng-show="availableData === false">
