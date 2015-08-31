@@ -26,10 +26,12 @@
 
         $scope.getTestResults = function () {
             $scope.envIds = [];
+            $scope.envNames = [];
             for (var k = 0; k < $scope.environments.length; ++k) {
                 if ($scope.environments[k].state) {
                     if ($scope.environments[k].state === true) {
                         $scope.envIds.push($scope.environments[k].id);
+                        $scope.envNames.push($scope.environments[k].name);
                     }
                 }
             }
